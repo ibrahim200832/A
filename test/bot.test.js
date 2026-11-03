@@ -202,6 +202,21 @@ function suite (version) {
     }
   })
 
+  test(`[${version}] Xbox-Login: der Bot übernimmt den Spielernamen des Kontos und ignoriert seine eigenen Nachrichten`, async () => {
+    bot.disconnect()
+    client = new FakeClient(version, 'BotKonto123')
+    bot = new Bot(cfgFor(), { bedrock: fakeBedrock(client), brain: { available: false } })
+    bot.connect()
+    client.emit('start_game', pkt.startGame(0, 64, 0))
+    bot.controller.paused = false
+    assert.equal(bot.cfg.username, 'BotKonto123')
+    await say('BotKonto123', 'komm her')
+    assert.equal(bot.controller.task, null, 'eigene Nachricht ignoriert')
+    client.emit('add_player', pkt.addPlayer('Steve', 5, 10, 64, 0))
+    await say('Steve', 'BotKonto123 komm her')
+    assert.equal(bot.controller.task.name, 'goto')
+  })
+
   test(`[${version}] Eigene Nachrichten und fremdes Geplauder werden ignoriert`, async () => {
     await say('KI-Bot', 'komm her')
     await say('Alex', 'hallo zusammen')

@@ -94,6 +94,11 @@ class Bot extends EventEmitter {
     })
 
     client.on('start_game', (p) => {
+      // Beim Xbox-Login heißt der Bot im Spiel wie das Microsoft-Konto, nicht wie in der Konfiguration.
+      if (client.username && client.username !== this.cfg.username) {
+        this.log(`Im Spiel heiße ich "${client.username}" (Name des angemeldeten Kontos).`)
+        this.cfg.username = client.username
+      }
       this.selfRuntime = p.runtime_entity_id
       this.selfUnique = p.entity_id
       const rot = p.rotation || {}

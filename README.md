@@ -30,7 +30,7 @@ In `config.json` musst du mindestens eintragen:
 
 **A) Eigener Bedrock-Server (am einfachsten).** Trag in der `server.properties` `online-mode=false` ein und starte den Server neu. Dann reicht `"offline": true`.
 
-**B) Server mit Xbox-Pflicht** (Hoster, LAN-Welten und alles, was `online-mode=true` hat). Setz `"offline": false`. Beim ersten Start zeigt der Bot im Terminal einen Link und einen Code. Damit meldest du ein **zweites Microsoft-Konto** für den Bot an (nicht dein eigenes, du bist ja schon im Spiel). Das Login wird in `.bedrock-auth/` gespeichert.
+**B) Server mit Xbox-Pflicht** (Hoster, LAN-Welten und alles, was `online-mode=true` hat). Setz `"offline": false`. Beim ersten Start zeigt der Bot im Terminal einen Link und einen Code. Damit meldest du ein **zweites Microsoft-Konto** für den Bot an (nicht dein eigenes, du bist ja schon im Spiel). Das Login wird in `.bedrock-auth/` gespeichert. Im Spiel heißt der Bot dann wie dieses Konto (Gamertag), nicht wie bei `username`. Wenn der Server eine Whitelist hat, muss dieser Gamertag dort eingetragen sein.
 
 Realms werden von diesem Projekt nicht direkt unterstützt.
 
