@@ -1,0 +1,22 @@
+{
+  "name": "bedrock-ai-bot",
+  "version": "1.0.0",
+  "description": "Ein KI-Bot für Minecraft Bedrock: bewegt sich, kämpft, schreibt im Chat und versteht, was du ihm schreibst.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibrahim200832/A.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.4.0",
+    "bedrock-protocol": "^3.59.0"
+  }
+}
